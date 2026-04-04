@@ -1,0 +1,32 @@
+package com.yellow.appoiments_backend.controllers;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.yellow.appoiments_backend.dtos.ClientCreateDto;
+import com.yellow.appoiments_backend.dtos.ClientResponseDto;
+import com.yellow.appoiments_backend.services.ClientService;
+
+import lombok.RequiredArgsConstructor;
+
+@RestController
+@RequiredArgsConstructor
+public class ClientController {
+
+    private final ClientService clientService;
+
+    @GetMapping("/clients")
+    public List<ClientResponseDto> getClients() {
+        return clientService.getAllClients();
+    }
+
+    @PostMapping("/clients")
+    public ClientResponseDto createClient(
+            @RequestBody ClientCreateDto dto) {
+        return clientService.createClient(dto);
+    }
+}
