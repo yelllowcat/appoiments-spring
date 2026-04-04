@@ -50,4 +50,22 @@ public class ClientService {
 
         return clientMapper.toClientResponseDto(savedClient);
     }
+
+    public ClientResponseDto updateClient(Long id, ClientCreateDto dto) {
+        Client existingClient = clientRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Client not found with id: " + id));
+
+        existingClient.getUser().setUsername(dto.username());
+        existingClient.getUser().setEmail(dto.email());
+        existingClient.getUser().setPhoneNumber(dto.phoneNumber());
+        existingClient.getUser().setPassword(dto.password());
+
+        Client updatedClient = clientRepository.save(existingClient);
+        return clientMapper.toClientResponseDto(updatedClient);
+    }
+
+    public void deleteClient(Long id) {
+        clientRepository.deleteById(id);
+    }
+
 }
