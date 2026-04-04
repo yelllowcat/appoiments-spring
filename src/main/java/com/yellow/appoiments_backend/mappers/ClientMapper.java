@@ -1,7 +1,5 @@
 package com.yellow.appoiments_backend.mappers;
 
-import java.time.LocalDateTime;
-
 import org.springframework.stereotype.Service;
 
 import com.yellow.appoiments_backend.dtos.ClientCreateDto;
@@ -13,23 +11,20 @@ import com.yellow.appoiments_backend.utils.Role;
 @Service
 public class ClientMapper {
 
-    public Client toClient(ClientCreateDto clientCreateDto) {
-        if (clientCreateDto == null) {
+    public Client toClient(ClientCreateDto dto) {
+        if (dto == null) {
             return null;
         }
         Client client = new Client();
         User user = new User();
 
-        user.setCreatedAt(LocalDateTime.now());
         user.setRole(Role.CLIENT);
-        user.setUsername("dada");
 
+        user.setUsername(dto.username());
+        user.setEmail(dto.email());
+        user.setPhoneNumber(dto.phoneNumber());
+        user.setPassword(dto.password());
         client.setUser(user);
-        client.getUser().setUsername(clientCreateDto.username());
-        client.getUser().setEmail(clientCreateDto.email());
-        client.getUser().setPhoneNumber(clientCreateDto.phoneNumber());
-        client.getUser().setPassword(clientCreateDto.password());
-        client.setCreatedAt(LocalDateTime.now());
 
         return client;
     }

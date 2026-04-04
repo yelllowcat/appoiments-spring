@@ -28,24 +28,19 @@ public class ClientService {
                 .collect(java.util.stream.Collectors.toList());
     }
 
+    public ClientResponseDto getClientById(Long id) {
+        Client client = clientRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Client not found with id: " + id));
+        return clientMapper.toClientResponseDto(client);
+    }
+
     public ClientResponseDto createClient(ClientCreateDto dto) {
-        System.out.println("Creating client with username: " + dto.username());
-        User user = User.builder()
-                .username(dto.username())
-                .email(dto.email())
-                .phoneNumber(dto.phoneNumber())
-                .password(dto.password())
-                .createdAt(java.time.LocalDateTime.now())
-                .role(Role.CLIENT)
-                .build();
 
-        Client client = Client.builder()
-                .user(user)
-                .createdAt(java.time.LocalDateTime.now())
-                .build();
+        Client client = clientMapper.toClient(dto);
 
-        user.setClient(client);
-        client.setUser(user);
+        client.getUser().setPassword(dto.password());
+        client.getUser().setRole(Role.CLIENT);
+
         Client savedClient = clientRepository.save(client);
 
         return clientMapper.toClientResponseDto(savedClient);
@@ -55,12 +50,24 @@ public class ClientService {
         Client existingClient = clientRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Client not found with id: " + id));
 
-        existingClient.getUser().setUsername(dto.username());
-        existingClient.getUser().setEmail(dto.email());
-        existingClient.getUser().setPhoneNumber(dto.phoneNumber());
-        existingClient.getUser().setPassword(dto.password());
+        User user = existingClient.getUser();
+
+        if (dto.username() != null && !dto.username().isEmpty()) {
+            user.setUsername(dto.username());
+
+        }
+        if (dto.email() != null && !dto.email().isEmpty()) {
+            user.setEmail(dto.email());
+        }
+        if (dto.phoneNumber() != null && !dto.phoneNumber().isEmpty()) {
+            user.setPhoneNumber(dto.phoneNumber());
+        }
+        if (dto.password() != null && !dto.password().isEmpty()) {
+            user.setPassword(dto.password());
+        }
 
         Client updatedClient = clientRepository.save(existingClient);
+
         return clientMapper.toClientResponseDto(updatedClient);
     }
 
