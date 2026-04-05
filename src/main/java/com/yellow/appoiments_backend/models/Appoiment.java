@@ -20,7 +20,7 @@ public class Appoiment extends BaseEntity {
 
     @OneToOne
     @JoinColumn(name = "service_id", nullable = false)
-    private Service service;
+    private BarberService service;
 
     @OneToOne
     @JoinColumn(name = "barber_id", nullable = false)
