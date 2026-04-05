@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.yellow.appoiments_backend.dtos.BarberCreateDto;
 import com.yellow.appoiments_backend.dtos.BarberResponseDto;
+import com.yellow.appoiments_backend.dtos.BarberUpdateDto;
 import com.yellow.appoiments_backend.services.BarberService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -33,12 +35,12 @@ public class BarberController {
 
     @PostMapping("/barbers")
     public BarberResponseDto createBarber(
-            @RequestBody BarberCreateDto dto) {
+            @Valid @RequestBody BarberCreateDto dto) {
         return barberService.createBarber(dto);
     }
 
     @PostMapping("/barbers/{id}")
-    public BarberResponseDto updateBarber(@PathVariable Long id, @RequestBody BarberCreateDto dto) {
+    public BarberResponseDto updateBarber(@PathVariable Long id, @Valid @RequestBody BarberUpdateDto dto) {
         return barberService.updateBarber(id, dto);
     }
 

@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.yellow.appoiments_backend.dtos.ClientCreateDto;
 import com.yellow.appoiments_backend.dtos.ClientResponseDto;
+import com.yellow.appoiments_backend.dtos.ClientUpdateDto;
 import com.yellow.appoiments_backend.services.ClientService;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -28,14 +30,14 @@ public class ClientController {
 
     @PostMapping("/clients")
     public ClientResponseDto createClient(
-            @RequestBody ClientCreateDto dto) {
+            @Valid @RequestBody ClientCreateDto dto) {
         return clientService.createClient(dto);
     }
 
     @PostMapping("/clients/{id}")
     public ClientResponseDto updateClient(
             @PathVariable Long id,
-            @RequestBody ClientCreateDto dto) {
+            @Valid @RequestBody ClientUpdateDto dto) {
 
         return clientService.updateClient(id, dto);
     }

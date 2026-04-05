@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.yellow.appoiments_backend.dtos.ClientCreateDto;
 import com.yellow.appoiments_backend.dtos.ClientResponseDto;
+import com.yellow.appoiments_backend.dtos.ClientUpdateDto;
 import com.yellow.appoiments_backend.mappers.ClientMapper;
 import com.yellow.appoiments_backend.models.Client;
 import com.yellow.appoiments_backend.models.User;
@@ -46,7 +47,7 @@ public class ClientService {
         return clientMapper.toClientResponseDto(savedClient);
     }
 
-    public ClientResponseDto updateClient(Long id, ClientCreateDto dto) {
+    public ClientResponseDto updateClient(Long id, ClientUpdateDto dto) {
         Client existingClient = clientRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Client not found with id: " + id));
 

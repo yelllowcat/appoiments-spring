@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.yellow.appoiments_backend.dtos.BarberCreateDto;
 import com.yellow.appoiments_backend.dtos.BarberResponseDto;
+import com.yellow.appoiments_backend.dtos.BarberUpdateDto;
 import com.yellow.appoiments_backend.mappers.BarberMapper;
 import com.yellow.appoiments_backend.models.Barber;
 import com.yellow.appoiments_backend.models.User;
@@ -46,7 +47,7 @@ public class BarberService {
         return barberMapper.toBarberResponseDto(savedBarber);
     }
 
-    public BarberResponseDto updateBarber(Long id, BarberCreateDto dto) {
+    public BarberResponseDto updateBarber(Long id, BarberUpdateDto dto) {
         Barber existingBarber = barberRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Barber not found with id: " + id));
 
