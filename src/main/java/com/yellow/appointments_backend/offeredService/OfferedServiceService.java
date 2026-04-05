@@ -1,13 +1,13 @@
-package com.yellow.appointments_backend.OfferedService;
+package com.yellow.appointments_backend.offeredService;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.yellow.appointments_backend.OfferedService.dto.OfferedServiceCreateDto;
-import com.yellow.appointments_backend.OfferedService.dto.OfferedServiceResponseDto;
-import com.yellow.appointments_backend.OfferedService.dto.OfferedServiceUpdateDto;
+import com.yellow.appointments_backend.offeredService.dto.OfferedServiceCreateDto;
+import com.yellow.appointments_backend.offeredService.dto.OfferedServiceResponseDto;
+import com.yellow.appointments_backend.offeredService.dto.OfferedServiceUpdateDto;
 
 import lombok.RequiredArgsConstructor;
 

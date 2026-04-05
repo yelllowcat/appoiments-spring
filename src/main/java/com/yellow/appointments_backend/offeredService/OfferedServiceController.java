@@ -1,4 +1,4 @@
-package com.yellow.appointments_backend.OfferedService;
+package com.yellow.appointments_backend.offeredService;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yellow.appointments_backend.OfferedService.dto.OfferedServiceCreateDto;
-import com.yellow.appointments_backend.OfferedService.dto.OfferedServiceResponseDto;
-import com.yellow.appointments_backend.OfferedService.dto.OfferedServiceUpdateDto;
+import com.yellow.appointments_backend.offeredService.dto.OfferedServiceCreateDto;
+import com.yellow.appointments_backend.offeredService.dto.OfferedServiceResponseDto;
+import com.yellow.appointments_backend.offeredService.dto.OfferedServiceUpdateDto;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

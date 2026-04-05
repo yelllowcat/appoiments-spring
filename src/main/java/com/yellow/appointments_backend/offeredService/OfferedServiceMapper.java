@@ -1,9 +1,9 @@
-package com.yellow.appointments_backend.OfferedService;
+package com.yellow.appointments_backend.offeredService;
 
 import org.springframework.stereotype.Service;
 
-import com.yellow.appointments_backend.OfferedService.dto.OfferedServiceCreateDto;
-import com.yellow.appointments_backend.OfferedService.dto.OfferedServiceResponseDto;
+import com.yellow.appointments_backend.offeredService.dto.OfferedServiceCreateDto;
+import com.yellow.appointments_backend.offeredService.dto.OfferedServiceResponseDto;
 
 @Service
 public class OfferedServiceMapper {

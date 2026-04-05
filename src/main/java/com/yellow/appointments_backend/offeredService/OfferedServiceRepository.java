@@ -1,4 +1,4 @@
-package com.yellow.appointments_backend.OfferedService;
+package com.yellow.appointments_backend.offeredService;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

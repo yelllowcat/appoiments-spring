@@ -2,11 +2,11 @@ package com.yellow.appointments_backend.appointment;
 
 import org.springframework.stereotype.Component;
 
-import com.yellow.appointments_backend.OfferedService.OfferedService;
 import com.yellow.appointments_backend.appointment.dto.AppointmentCreateDto;
 import com.yellow.appointments_backend.appointment.dto.AppointmentResponseDto;
 import com.yellow.appointments_backend.barber.Barber;
 import com.yellow.appointments_backend.client.Client;
+import com.yellow.appointments_backend.offeredService.OfferedService;
 
 @Component
 public class AppointmentMapper {

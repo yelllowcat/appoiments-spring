@@ -2,10 +2,10 @@ package com.yellow.appointments_backend.appointment;
 
 import java.time.LocalDateTime;
 
-import com.yellow.appointments_backend.OfferedService.OfferedService;
 import com.yellow.appointments_backend.barber.Barber;
 import com.yellow.appointments_backend.client.Client;
 import com.yellow.appointments_backend.models.BaseEntity;
+import com.yellow.appointments_backend.offeredService.OfferedService;
 import com.yellow.appointments_backend.utils.AppointmentStatus;
 
 import jakarta.persistence.Column;
